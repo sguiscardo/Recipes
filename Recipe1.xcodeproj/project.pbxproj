@@ -7,27 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7040FF22716520B00B913AC /* RecipeCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7040FF12716520B00B913AC /* RecipeCategoryTableViewController.swift */; };
+		F7040FF72716528200B913AC /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7040FF62716528200B913AC /* RecipeDetailViewController.swift */; };
 		F7FB3DE527163FDB0091D1B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB3DE427163FDB0091D1B1 /* AppDelegate.swift */; };
 		F7FB3DE727163FDB0091D1B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB3DE627163FDB0091D1B1 /* SceneDelegate.swift */; };
-		F7FB3DE927163FDB0091D1B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB3DE827163FDB0091D1B1 /* ViewController.swift */; };
 		F7FB3DEC27163FDB0091D1B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7FB3DEA27163FDB0091D1B1 /* Main.storyboard */; };
 		F7FB3DEE27163FDE0091D1B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7FB3DED27163FDE0091D1B1 /* Assets.xcassets */; };
 		F7FB3DF127163FDE0091D1B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7FB3DEF27163FDE0091D1B1 /* LaunchScreen.storyboard */; };
 		F7FB3DF9271643AA0091D1B1 /* RecipeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB3DF8271643AA0091D1B1 /* RecipeCategory.swift */; };
 		F7FB3DFB271643B10091D1B1 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB3DFA271643B10091D1B1 /* Recipe.swift */; };
+		F7FB3DFE271649D20091D1B1 /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB3DFD271649D20091D1B1 /* RecipeController.swift */; };
+		F7FB3E0027164A4E0091D1B1 /* RecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB3DFF27164A4E0091D1B1 /* RecipeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F7040FF12716520B00B913AC /* RecipeCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCategoryTableViewController.swift; sourceTree = "<group>"; };
+		F7040FF62716528200B913AC /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		F7FB3DE127163FDB0091D1B1 /* Recipe1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipe1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7FB3DE427163FDB0091D1B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7FB3DE627163FDB0091D1B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F7FB3DE827163FDB0091D1B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F7FB3DEB27163FDB0091D1B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7FB3DED27163FDE0091D1B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7FB3DF027163FDE0091D1B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7FB3DF227163FDE0091D1B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7FB3DF8271643AA0091D1B1 /* RecipeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCategory.swift; sourceTree = "<group>"; };
 		F7FB3DFA271643B10091D1B1 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		F7FB3DFD271649D20091D1B1 /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
+		F7FB3DFF27164A4E0091D1B1 /* RecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +47,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7040FF32716522700B913AC /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F7FB3DFD271649D20091D1B1 /* RecipeController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		F7040FF42716524300B913AC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F7FB3DFF27164A4E0091D1B1 /* RecipeTableViewController.swift */,
+				F7040FF12716520B00B913AC /* RecipeCategoryTableViewController.swift */,
+				F7040FF62716528200B913AC /* RecipeDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F7040FF52716526500B913AC /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				F7FB3DE427163FDB0091D1B1 /* AppDelegate.swift */,
+				F7FB3DE627163FDB0091D1B1 /* SceneDelegate.swift */,
+				F7FB3DEA27163FDB0091D1B1 /* Main.storyboard */,
+				F7FB3DED27163FDE0091D1B1 /* Assets.xcassets */,
+				F7FB3DEF27163FDE0091D1B1 /* LaunchScreen.storyboard */,
+				F7FB3DF227163FDE0091D1B1 /* Info.plist */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
 		F7FB3DD827163FDB0091D1B1 = {
 			isa = PBXGroup;
 			children = (
@@ -60,14 +97,10 @@
 		F7FB3DE327163FDB0091D1B1 /* Recipe1 */ = {
 			isa = PBXGroup;
 			children = (
-				F7FB3DE427163FDB0091D1B1 /* AppDelegate.swift */,
-				F7FB3DE627163FDB0091D1B1 /* SceneDelegate.swift */,
-				F7FB3DE827163FDB0091D1B1 /* ViewController.swift */,
-				F7FB3DEA27163FDB0091D1B1 /* Main.storyboard */,
-				F7FB3DED27163FDE0091D1B1 /* Assets.xcassets */,
-				F7FB3DEF27163FDE0091D1B1 /* LaunchScreen.storyboard */,
-				F7FB3DF227163FDE0091D1B1 /* Info.plist */,
+				F7040FF52716526500B913AC /* Resourses */,
 				F7FB3DFC271643B70091D1B1 /* Models */,
+				F7040FF32716522700B913AC /* Model Controller */,
+				F7040FF42716524300B913AC /* ViewControllers */,
 			);
 			path = Recipe1;
 			sourceTree = "<group>";
@@ -152,11 +185,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7FB3DE927163FDB0091D1B1 /* ViewController.swift in Sources */,
+				F7040FF22716520B00B913AC /* RecipeCategoryTableViewController.swift in Sources */,
 				F7FB3DF9271643AA0091D1B1 /* RecipeCategory.swift in Sources */,
+				F7040FF72716528200B913AC /* RecipeDetailViewController.swift in Sources */,
 				F7FB3DE527163FDB0091D1B1 /* AppDelegate.swift in Sources */,
 				F7FB3DE727163FDB0091D1B1 /* SceneDelegate.swift in Sources */,
+				F7FB3E0027164A4E0091D1B1 /* RecipeTableViewController.swift in Sources */,
 				F7FB3DFB271643B10091D1B1 /* Recipe.swift in Sources */,
+				F7FB3DFE271649D20091D1B1 /* RecipeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +343,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 77U2457882;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Recipe1/Info.plist;
+				INFOPLIST_FILE = Recipe1/Resourses/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -335,7 +371,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 77U2457882;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Recipe1/Info.plist;
+				INFOPLIST_FILE = Recipe1/Resourses/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

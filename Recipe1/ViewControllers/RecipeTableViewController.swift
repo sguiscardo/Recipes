@@ -8,82 +8,68 @@
 import UIKit
 
 class RecipeTableViewController: UITableViewController {
+    
+    @IBOutlet weak var categoryNameTextField: UITextField!
+    
+    let recipeController = RecipeController.shared
+    var category: RecipeCategory?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    // MARK: - Lifecycle Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        categoryNameTextField.text = category?.title
+        tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let category = category,
+            let newTitle = categoryNameTextField.text else { return }
+        recipeController.updateRecipeCategory(category: category, title: newTitle)
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return category?.recipes.count ?? 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
+        guard let recipe = category?.recipes[indexPath.row] else { return cell }
+        cell.textLabel?.text = recipe.title
+        if let calories = recipe.calories {
+            cell.detailTextLabel?.text = "\(calories) Cal"
+        } else {
+            cell.detailTextLabel?.text = nil
+        }
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            guard let category = category else { return }
+            recipeController.deleteRecipeIn(category: category, index: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard segue.identifier == "toRecipeDetail",
+              let recipeDetailViewController = segue.destination as? RecipeDetailViewController,
+              let selectedRow = tableView.indexPathForSelectedRow?.row else { return }
+        let recipe = category?.recipes[selectedRow]
+        recipeDetailViewController.recipe = recipe
     }
-    */
-
+    
+    // MARK: - Actions
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        guard let category = category else { return }
+        recipeController.createRecipe(in: category)
+        let newRow = category.recipes.count - 1
+        let indexPath = IndexPath(row: newRow, section: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+    
 }

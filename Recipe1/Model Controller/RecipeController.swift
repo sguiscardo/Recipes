@@ -12,7 +12,7 @@ class RecipeController {
     // MARK: - Properties
     static let shared = RecipeController()
     
-    var categories: [RecipeCategory] = []
+    private(set) var categories: [RecipeCategory] = []
     
     // MARK: - Initializers
     init() {
@@ -26,40 +26,42 @@ class RecipeController {
         saveRecipesToDisk()
     }
     
-    func updateRecipeCategory(category: inout RecipeCategory, title: String) {
+    func updateRecipeCategory(category: RecipeCategory, title: String) {
         category.title = title
+        saveRecipesToDisk()
+    }
+    
+    func deleteRecipeCategory(index: Int) {
+        categories.remove(at: index)
         saveRecipesToDisk()
     }
     
     // MARK: - Recipes
     func createRecipe(title: String = "Untitled Recipe",
-                   description: String = "",
+                   description: String = "Recipe Description",
                    calories: Int = 0,
-                   cookTime: TimeInterval = 0,
-                   in category: inout RecipeCategory) {
+                   cookTime: Int = 0,
+                   in category: RecipeCategory) {
         let recipe = Recipe(title: title, description: description, calories: calories, cookTime: cookTime)
         category.recipes.append(recipe)
         saveRecipesToDisk()
     }
     
-    func remove(recipe: Recipe, from category: inout RecipeCategory) {
-        guard let index = category.recipes.firstIndex(of: recipe) else { return }
+    func deleteRecipeIn(category: RecipeCategory, index: Int) {
         category.recipes.remove(at: index)
         saveRecipesToDisk()
     }
     
-    func update(recipe: inout Recipe,
+    func update(recipe: Recipe,
                 title: String,
                 description: String,
-                calories: Int,
-                cookTime: TimeInterval) {
-//        guard let indexToUpate = category.recipes.firstIndex(of: recipe) else { return }
+                calories: Int?,
+                cookTime: Int?) {
         recipe.title = title
         recipe.description = description
         recipe.calories = calories
         recipe.cookTime = cookTime
-//        category.recipes[indexToUpate] = recipe
-        
+        saveRecipesToDisk()
     }
     
     

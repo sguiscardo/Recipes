@@ -8,22 +8,42 @@
 import UIKit
 
 class RecipeDetailViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    // MARK: - IBOutlets
+    @IBOutlet weak var recipeTitleTextField: UITextField!
+    @IBOutlet weak var calorieTextField: UITextField!
+    @IBOutlet weak var cookTimeTextField: UITextField!
+    @IBOutlet weak var recipeDescriptionTextField: UITextView!
+    
+    // MARK: - Properties
+    let recipeController = RecipeController.shared
+    var recipe: Recipe?
+    
+    // MARK: - Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let recipe = recipe else { return }
+        recipeTitleTextField.text = recipe.title
+        recipeDescriptionTextField.text = recipe.description
+        if let calories = recipe.calories {
+            calorieTextField.text = "\(calories)"
+        }
+        if let cookTime = recipe.cookTime {
+            cookTimeTextField.text = "\(cookTime)"
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let recipe = recipe,
+              let title = recipeTitleTextField.text,
+              let description = recipeDescriptionTextField.text else { return }
+        let calories = Int(calorieTextField.text ?? "")
+        let cookTime = Int(cookTimeTextField.text ?? "")
+        recipeController.update(recipe: recipe,
+                                title: title,
+                                description: description,
+                                calories: calories,
+                                cookTime: cookTime)
+        self.navigationController?.popViewController(animated: true)
     }
-    */
-
 }

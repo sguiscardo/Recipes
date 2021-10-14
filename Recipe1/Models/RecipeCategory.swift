@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RecipeCategory: Codable, Equatable {
+class RecipeCategory: Codable {
     let id: UUID
     var title: String
     var recipes: [Recipe]
@@ -16,5 +16,11 @@ struct RecipeCategory: Codable, Equatable {
         self.id = id
         self.title = title
         self.recipes = recipes
+    }
+}
+
+extension RecipeCategory: Equatable {
+    static func == (lhs: RecipeCategory, rhs: RecipeCategory) -> Bool {
+        return lhs.id == rhs.id
     }
 }

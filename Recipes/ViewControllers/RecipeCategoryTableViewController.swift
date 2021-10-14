@@ -32,7 +32,8 @@ class RecipeCategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            recipeController.deleteRecipeCategory(index: indexPath.row)
+            let category = recipeController.categories[indexPath.row]
+            recipeController.delete(category: category)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }

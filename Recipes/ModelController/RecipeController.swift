@@ -31,7 +31,8 @@ class RecipeController {
         saveRecipesToDisk()
     }
     
-    func deleteRecipeCategory(index: Int) {
+    func delete(category: RecipeCategory) {
+        guard let index = categories.firstIndex(of: category) else { return }
         categories.remove(at: index)
         saveRecipesToDisk()
     }
@@ -47,7 +48,8 @@ class RecipeController {
         saveRecipesToDisk()
     }
     
-    func deleteRecipeIn(category: RecipeCategory, index: Int) {
+    func delete(recipe: Recipe, in category: RecipeCategory) {
+        guard let index = category.recipes.firstIndex(of: recipe) else { return }
         category.recipes.remove(at: index)
         saveRecipesToDisk()
     }

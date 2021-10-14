@@ -35,14 +35,10 @@ class RecipeTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
-        guard let recipe = category?.recipes[indexPath.row] else { return cell }
-        cell.textLabel?.text = recipe.title
-        if let calories = recipe.calories {
-            cell.detailTextLabel?.text = "\(calories) Cal"
-        } else {
-            cell.detailTextLabel?.text = nil
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath) as? RecipeTableViewCell,
+              let recipe = category?.recipes[indexPath.row] else { return UITableViewCell() }
+        cell.recipe = recipe
+        cell.delegate = self
         return cell
     }
     
@@ -72,4 +68,14 @@ class RecipeTableViewController: UITableViewController {
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
     
+}
+
+// MARK: RecipeTableViewCellDelegate Conformance
+extension RecipeTableViewController: RecipeTableViewCellDelegate {
+    
+    func toggleFavoriteButtonWasTapped(cell: RecipeTableViewCell) {
+        guard let recipe = cell.recipe else { return }
+        recipeController.toggleFavorite(recipe: recipe)
+        cell.updateViews()
+    }
 }

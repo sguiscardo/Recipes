@@ -64,6 +64,11 @@ class RecipeController {
         saveRecipesToDisk()
     }
     
+    func toggleFavorite(recipe: Recipe) {
+        recipe.isFavorite.toggle()
+        saveRecipesToDisk()
+    }
+    
     
     // MARK: - Persistance
     func saveRecipesToDisk() {

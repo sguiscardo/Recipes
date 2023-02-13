@@ -19,3 +19,11 @@ class RecipeCategory {
         self.recipes = recipes
     }
 }// end of class
+
+extension RecipeCategory: Equatable {
+    static func == (lhs: RecipeCategory, rhs: RecipeCategory) -> Bool {
+        return lhs.id == rhs.id // Scott nailed this day one... I don't have to use multiple variables to change somthing.
+    }
+    
+    
+}

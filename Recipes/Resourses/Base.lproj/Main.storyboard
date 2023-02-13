@@ -105,53 +105,30 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCell" rowHeight="83" id="kZa-2c-dJY" customClass="RecipeTableViewCell" customModule="Recipes" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCell" textLabel="exb-Eb-dKc" detailTextLabel="Okw-27-H5V" rowHeight="83" style="IBUITableViewCellStyleSubtitle" id="kZa-2c-dJY">
                                 <rect key="frame" x="0.0" y="141" width="414" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kZa-2c-dJY" id="SUg-JS-KlC">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6sh-5H-Hnj">
-                                            <rect key="frame" x="28" y="19" width="328" height="45"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fca-pC-Asd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="328" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SlX-ja-GAj">
-                                                    <rect key="frame" x="0.0" y="28.5" width="328" height="16.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="900" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSS-cI-uBS">
-                                            <rect key="frame" x="364" y="19" width="22" height="45"/>
-                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal" image="star.fill" catalog="system"/>
-                                            <connections>
-                                                <action selector="toggleFavoriteButtonTapped:" destination="kZa-2c-dJY" eventType="touchUpInside" id="tZB-DD-E21"/>
-                                            </connections>
-                                        </button>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="exb-Eb-dKc">
+                                            <rect key="frame" x="20" y="25" width="25" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Okw-27-H5V">
+                                            <rect key="frame" x="20" y="41.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="6sh-5H-Hnj" firstAttribute="top" secondItem="SUg-JS-KlC" secondAttribute="topMargin" constant="8" id="A0X-IV-HT8"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="qSS-cI-uBS" secondAttribute="trailing" constant="8" id="FPd-xl-N2n"/>
-                                        <constraint firstItem="qSS-cI-uBS" firstAttribute="leading" secondItem="6sh-5H-Hnj" secondAttribute="trailing" constant="8" id="INH-ed-tXM"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="qSS-cI-uBS" secondAttribute="bottom" constant="8" id="LUx-Ss-s66"/>
-                                        <constraint firstItem="qSS-cI-uBS" firstAttribute="top" secondItem="SUg-JS-KlC" secondAttribute="topMargin" constant="8" id="PBz-Vf-eKV"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="6sh-5H-Hnj" secondAttribute="bottom" constant="8" id="c0H-zF-qv0"/>
-                                        <constraint firstItem="6sh-5H-Hnj" firstAttribute="leading" secondItem="SUg-JS-KlC" secondAttribute="leadingMargin" constant="8" id="fzJ-H0-VSL"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="favoriteButton" destination="qSS-cI-uBS" id="2v8-hu-IdQ"/>
-                                    <outlet property="recipeSubtitleLabel" destination="SlX-ja-GAj" id="Gtb-2u-g59"/>
-                                    <outlet property="recipeTitleLabel" destination="fca-pC-Asd" id="JPf-7v-ark"/>
                                     <segue destination="RhT-1e-pN6" kind="show" identifier="toRecipeDetail" id="tzv-x7-B8a"/>
                                 </connections>
                             </tableViewCell>

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RecipeCategory {
+class RecipeCategory: Encodable, Decodable {
     
     let id: UUID
     var title: String
@@ -24,6 +24,6 @@ extension RecipeCategory: Equatable {
     static func == (lhs: RecipeCategory, rhs: RecipeCategory) -> Bool {
         return lhs.id == rhs.id // Scott nailed this day one... I don't have to use multiple variables to change somthing.
     }
-    
-    
 }
+// if your protocal has equations you have to add it to extension and if it does not you add it to the class decoration site.
+
